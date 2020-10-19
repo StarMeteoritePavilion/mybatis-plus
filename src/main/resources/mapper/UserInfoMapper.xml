@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.can.mapper.UserInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.can.entity.UserInfo">
+        <id column="user_id" property="userId"/>
+        <result column="user_age" property="userAge"/>
+        <result column="user_name" property="userName"/>
+        <result column="birthday" property="birthday"/>
+    </resultMap>
+
+    <select id="selectUserById" resultMap="BaseResultMap">
+        select * from t_user_info where user_id = #{userId}
+    </select>
+
+    <insert id="insertUser">
+        insert t_user_info(user_name, user_age, birthday)
+        values(#{entity.userName}, #{entity.userAge}, #{entity.birthday})
+    </insert>
+
+</mapper>
