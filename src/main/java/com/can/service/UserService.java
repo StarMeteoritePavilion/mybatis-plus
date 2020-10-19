@@ -1,7 +1,5 @@
 package com.can.service;
 
-import com.can.entity.UserInfo;
-
 /**
  * <pre>
  *
@@ -12,7 +10,39 @@ import com.can.entity.UserInfo;
  */
 public interface UserService {
 
-    boolean insertUser();
+    /**
+     * 单个方法插入
+     * @return
+     */
+    boolean insertUser01();
 
-    UserInfo selectUser(Integer userId);
+    /**
+     * 跨一个方法后, 公有插入
+     * @return
+     */
+    boolean insertUser02();
+
+    /**
+     * 跨一个方法后, 私有插入
+     * @return
+     */
+    boolean insertUser03();
+
+    /**
+     * 跨服务插入, 自身方法抛异常
+     * @return
+     */
+    boolean insertUser04();
+
+    /**
+     * 跨服务插入，调用服务抛异常
+     * @return
+     */
+    boolean insertUser05();
+
+    /**
+     * 调用自身的私有方法，私用的方法调用另一个服务带事务的方法
+     * @return
+     */
+    boolean insertUser06();
 }

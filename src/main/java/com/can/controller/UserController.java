@@ -1,9 +1,7 @@
 package com.can.controller;
 
-import com.can.entity.UserInfo;
 import com.can.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -22,13 +20,34 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @GetMapping("/insert")
-    public boolean insertUser() {
-        return userService.insertUser();
+    @GetMapping("/insert01")
+    public Boolean insert01() {
+        return userService.insertUser01();
     }
 
-    @GetMapping("/select/{userId}")
-    public UserInfo selectUser(@PathVariable("userId")Integer userId) {
-        return userService.selectUser(userId);
+    @GetMapping("/insert02")
+    public Boolean insert02() {
+        return userService.insertUser02();
     }
+
+    @GetMapping("/insert03")
+    public Boolean insert03() {
+        return userService.insertUser03();
+    }
+
+    @GetMapping("/insert04")
+    public Boolean insert04() {
+        return userService.insertUser04();
+    }
+
+    @GetMapping("/insert05")
+    public Boolean insert05() {
+        return userService.insertUser05();
+    }
+
+    @GetMapping("/insert06")
+    public Boolean insert06() {
+        return userService.insertUser06();
+    }
+
 }
