@@ -15,3 +15,10 @@ mybatis-plus
 这时候会导致 2 边同时在等待，直到其中一边包 锁等待超时, 另一边才能执行 
 
 Cause: com.mysql.cj.jdbc.exceptions.MySQLTransactionRollbackException: Lock wait timeout exceeded; try restarting transaction
+
+
+行级锁并不是直接锁记录，而是锁索引，
+如果一条SQL语句用到了主键索引，mysql会锁住主键索引
+如果一条语句操作了非主键索引，mysql会先锁住非主键索引，再锁定主键索引
+如果操作用到了主键索引会先在主键索引上加锁，然后在其他索引上加锁
+对于没有用索引的操作会采用表级锁
