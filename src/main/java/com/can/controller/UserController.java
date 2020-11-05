@@ -31,4 +31,16 @@ public class UserController {
     public UserInfo selectUser(@PathVariable("userId")Integer userId) {
         return userService.selectUser(userId);
     }
+
+    @GetMapping("/updateSlow/{userId}")
+    public Boolean updateLongTime(@PathVariable("userId")Integer userId) {
+        return userService.updateSlowNoIndex(userId);
+    }
+
+    @GetMapping("/updateQuick/{userId}")
+    public Boolean updateQuick(@PathVariable("userId")Integer userId) {
+        return userService.updateQuickNoIndex(userId);
+    }
+
+
 }
